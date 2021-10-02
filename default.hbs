@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{meta_title}}</title>
+
+    <meta name="HandheldFriendly" content="True" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href={{asset "built/styles.css" }}>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href={{asset "built/styles.css" }}>
+
+    {{ghost_head}}
+</head>
+
+<body class="{{body_class}}">
+    {{> site-header}}
+
+    <div id="search" class="index">
+        <p id="search-count">
+
+        </p>
+        <div id="search-results">
+
+        </div>
+    </div>
+
+    <div id="body">
+        {{{body}}}
+    </div>
+
+    <footer class="footer">
+        <p class="footer__copyright">
+            Copyright (c) 2021 Damillora
+        </p>
+    </footer>
+
+    <script async defer src={{asset "built/totori.js" }}></script>
+    {{{block "scripts"}}}
+
+    {{ghost_foot}}
+</body>
+
+</html>

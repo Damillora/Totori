@@ -1,0 +1,21 @@
+<nav class="nav">
+    {{#foreach navigation}}
+    <li class="nav__menu">
+        <a href="{{url absolute="true" }}">
+            {{label}}
+        </a>
+    </li>
+    {{/foreach}}
+    <li class="nav__menu">
+        <span class="material-icons" id="dark-mode">
+            brightness_low
+        </span>
+    </li>
+    <li class="nav__search">
+        <input class="nav__search-box" type="text" name="search"
+            id="search-query">
+        <span class="material-icons nav__search-icon">
+            search
+        </span>
+    </li>
+</nav>

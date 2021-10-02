@@ -1,0 +1,120 @@
+{{!< default}} {{#post}} {{> hero background=feature_image}}
+
+    <main class="post">
+        <div class="post-header">
+            <div class="post-header__info">
+                {{#if primary_tag}}
+                {{#primary_tag}}
+                {{#if accent_color}}
+                <span class="post-header__tag-color" style="background-color: {{accent_color}};"></span>
+                {{else}}
+                <span class="post-header__tag-color"></span>
+                {{/if}}
+                <span class="post-header__tag-name">
+                    <a href="{{url}}">{{name}}</a>
+                </span>
+                {{/primary_tag}}
+                {{/if}}
+                <p class="post-header__date">
+                    <time datetime="{{date format=" YYYY-MM-DD"}}">
+                        {{date format="D MMM YYYY"}}
+                    </time>
+                    <span class="bull">&bull;</span>
+                    {{reading_time}}
+                </p>
+            </div>
+            <h1 class="post-header__title">
+                {{title}}
+            </h1>
+            <div class="post-header__author">
+                {{#if authors}}
+                {{#foreach authors}}
+                {{#if profile_image}}
+                <a href="{{url}}">
+                    <img src="{{profile_image}}" class="post-header__author-image" src="{{img_url profile_image size="
+                        xs"}}" alt="{{name}}">
+                </a>
+                {{/if}}
+                {{/foreach}}
+                <p class="post-header__author-name">
+                    {{#has author="count:>2"}}
+                    Multiple authors
+                    {{else}}
+                    {{#foreach authors}}
+                    <a href="{{url}}" title="{{name}}">{{name}}</a>
+                    {{/foreach}}
+                    {{/has}}
+                </p>
+                {{/if}}
+            </div>
+        </div>
+        <div class="post-main">
+            <div class="post-main__content">
+                {{content}}
+            </div>
+            <div class="post-main__comments">
+                <h1 class="post-main__comments-title">Comments</h1>
+
+            </div>
+        </div>
+        <div class="post post-navigator-root">
+            {{#prev_post}}
+            <a href="{{url}}" class="post-navigator post-navigator--prev">
+                <span class="material-icons post-navigator__icon">arrow_back</span>
+                <div class="post-navigator__content
+                    post-navigator__content--prev">
+                    <p class="post-navigator__indicator">Previous post</p>
+                    <p class="post-navigator__title">{{title}}</p>
+                </div>
+            </a>
+            {{/prev_post}}
+            <div class="post-navigator__separator"></div>
+            {{#next_post}}
+            <a href="{{url}}" class="post-navigator post-navigator--next">
+                <div class="post-navigator__content
+                    post-navigator__content--next">
+                    <p class="post-navigator__indicator">Next post</p>
+                    <p class="post-navigator__title">{{title}}</p>
+                </div>
+                <span class="material-icons post-navigator__icon">arrow_forward</span>
+            </a>
+            {{/next_post}}
+        </div>
+        {{#if primary_tag}}
+        {{#get "posts" include="tags" filter="tags:{{primary_tag.slug}}+id:-{{id}}" limit="3" as |related_posts|}}
+        {{#if related_posts}}
+        {{#../primary_tag}}
+        <div class="post post-related">
+            <span class="post-related__header">
+                More in
+            </span>
+            {{#if accent_color}}
+            <span class="post-related__tag-color" style="background-color: {{accent_color}};"></span>
+            {{else}}
+            <span class="post-related__tag-color"></span>
+            {{/if}}
+            <span class="post-related__tag-description">
+                <a href="{{url}}">{{name}}</a>
+            </span>
+        </div>
+        {{/../primary_tag}}
+
+        <div class="index">
+            {{#foreach related_posts}}
+            {{> post-card}}
+            {{/foreach}}
+        </div>
+        {{/if}}
+        {{/get}}
+        {{/if}}
+
+    </main>
+
+
+
+    {{/post}}
+
+    {{#contentFor "scripts"}}
+    <script>
+    </script>
+    {{/contentFor}}

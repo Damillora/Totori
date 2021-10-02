@@ -1,0 +1,65 @@
+<article class="post-card">
+    <div class="post-card__banner">
+        {{#if feature_image}}
+        <img class="post-card__img" srcset="{{img_url feature_image
+            size=" s" }} 300w, {{img_url feature_image size="m" }} 600w" sizes="(max-width: 768px) 100vw,
+            35vw" src="{{img_url feature_image size=" m" }}" alt="{{title}}" loading="lazy">
+        {{else}}
+        <img class="post-card__img" srcset="{{img_url @site.cover_image
+            size=" s" }} 300w, {{img_url @site.cover_image size="m" }} 600w" sizes="(max-width: 768px) 100vw,
+            35vw" src="{{img_url @site.cover_image size=" m" }}" alt="{{title}}" loading="lazy">
+        {{/if}}
+    </div>
+    <div class="post-card__content">
+        <div class="post-card__info">
+            {{#if primary_tag}}
+            {{#primary_tag}}
+            {{#if accent_color}}
+            <span class="post-card__tag-color" style="background-color: {{accent_color}};"></span>
+            {{else}}
+            <span class="post-card__tag-color" style="background-color: {{accent_color}};"></span>
+            {{/if}}
+            <a class="post-card__tag-name" href="{{url}}">{{name}}</a>
+            {{/primary_tag}}
+            {{/if}}
+            <p class="post-card__date">
+                <time datetime="{{date format=" YYYY-MM-DD" }}">
+                    {{date format="D MMM YYYY"}}
+                </time>
+                <span class="bull">&bull;</span>
+                {{reading_time}}
+            </p>
+        </div>
+        <h2 class="post-card__title">
+            <a href="{{url}}">
+                {{title}}
+            </a>
+        </h2>
+        <p class="post-card__excerpt">
+            {{excerpt words="30"}}
+        </p>
+        <div class="post-card__footer">
+            <div class="post-card__author">
+                {{#foreach authors}}
+                {{#if profile_image}}
+                <a href="{{url}}">
+                    <img src="{{img_url
+                        profile_image
+                        size=" s" }}" class="post-card__author-image">
+                </a>
+                {{/if}}
+                {{/foreach}}
+                <p class="post-card__author-name">
+                    {{#has author="count:>2"}}Multiple authors{{else}}
+                    {{#foreach authors}}
+                    <a href="{{url}}" title="{{name}}">{{name}}</a>
+                    {{/foreach}}
+                    {{/has}}
+                </p>
+            </div>
+            <p class="post-card__read-more">
+                <a href="{{url}}">Read more</a>
+            </p>
+        </div>
+    </div>
+</article>

@@ -1,0 +1,36 @@
+{{!< default}} {{#tag}} <div class="hero">
+    {{#if feature_image}}
+    <img class="hero__img" src="{{feature_image}}">
+    {{else}}
+    <img class="hero__img" src="{{@site.cover_image}}">
+    {{/if}}
+    </div>
+
+    <div class="post">
+        <div class="post-header">
+            <p class="category-name">Tag</p>
+            <div class="tag">
+                <h1 class="tag__name">
+                    {{#if accent_color}}
+                    <span class="tag__color" style="background-color: {{accent_color}};"></span>
+                    {{else}}
+                    <span class="tag__color"></span>
+                    {{/if}}
+                    {{name}}
+                </h1>
+                {{#if description}}
+                <p class="tag__description">{{description}}</p>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    {{/tag}}
+
+    <main class="index" id="post-list">
+        {{#foreach posts}}
+        {{> "post-card"}}
+        {{/foreach}}
+    </main>
+
+    {{#contentFor "scripts"}}
+    {{/contentFor}}

@@ -1,0 +1,24 @@
+<div class="tag__row">
+  {{#if primary_tag}}
+  {{#primary_tag}}
+  <a href="{{url}}">
+    <span class="tag__name--post-header">{{name}}</span>
+    {{#if accent_color}}
+    <span class="tag__color" style="background-color: {{accent_color}};"></span>
+    {{else}}
+    <span class="tag__color"></span>
+    {{/if}}
+  </a>
+  {{/primary_tag}}
+  {{/if}}
+  {{#has visibility="paid"}}
+  <a href="/subscribe">
+    <span class="tag__paywall">Paid content</span>
+  </a>
+  {{/has}}
+  {{#has visibility="members"}}
+  <a href="/subscribe">
+    <span class="tag__paywall">Member-exclusive</span>
+  </a>
+  {{/has}}
+</div>

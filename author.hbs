@@ -1,0 +1,42 @@
+{{!< default}} {{#author}} <div class="hero">
+    {{#if cover_image}}
+    <img class="hero__img" src="{{cover_image}}">
+    {{else}}
+    <img class="hero__img" src="{{@site.cover_image}}">
+    {{/if}}
+    </div>
+
+
+    <div class="post">
+        <div class="post-header">
+            <p class="category-name">Author</p>
+            <div class="author">
+                <h1 class="author__name">
+                    <img class="author__image" src="{{profile_image}}">
+                    {{name}}
+                </h1>
+                <p class="author__description">{{bio}}</p>
+                <p class="author__description">
+                    {{#if website}}
+                    <span class=""><a href="{{website}}" target="_blank" rel="noopener">Website</a></span>
+                    {{/if}}
+                    {{#if twitter}}
+                    <span class=""><a href="{{twitter_url}}" target="_blank" rel="noopener">Twitter</a></span>
+                    {{/if}}
+                    {{#if facebook}}
+                    <span class=""><a href="{{facebook_url}}" target="_blank" rel="noopener">Facebook</a></span>
+                    {{/if}}
+                </p>
+            </div>
+        </div>
+    </div>
+    {{/author}}
+
+    <main class="index" id="post-list">
+        {{#foreach posts}}
+        {{> "post-card"}}
+        {{/foreach}}
+    </main>
+
+    {{#contentFor "scripts"}}
+    {{/contentFor}}

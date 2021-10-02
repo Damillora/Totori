@@ -1,0 +1,65 @@
+{{!< ../default}}  {{> header-background background=@site.cover_image}}
+  <div class="page-header">
+    <div class="page-header__background responsive-header-img">
+      <div class="page-header__overlay"></div>
+    </div>
+    <div class="page-header__contents">
+      <div class="post-header container mx-auto main">
+        <div>
+          <h1>Plausible Exclude</h1>
+          <p>Click the button below to toggle your exclusion in analytics for this
+            site</p>
+          <p>You currently <span id="plausible_not">are not</span><span id="plausible_yes">are</span>
+            excluding your visits.</p>
+          <a class=""
+            href="javascript:toggleExclusion()">Exclude my visits</a>
+        </div>
+
+        <script>
+          window.addEventListener('load', function (e) {
+            var exclusionState = window.localStorage.plausible_ignore == "true"
+
+            if (exclusionState) {
+              document.getElementById("plausible_not").style.display = "none"
+              document.getElementById("plausible_yes").style.display = "inline"
+              document.getElementById("plausible_button").innerHTML = 'Stop excluding my visits'
+            } else {
+              document.getElementById("plausible_yes").style.display = "none"
+              document.getElementById("plausible_not").style.display = "inline"
+              document.getElementById("plausible_button").innerHTML = 'Exclude my visits'
+            }
+          });
+
+          function toggleExclusion(e) {
+            var exclusionState = window.localStorage.plausible_ignore == "true"
+
+            if (exclusionState) {
+              delete window.localStorage.plausible_ignore
+              document.getElementById("plausible_yes").style.display = "none"
+              document.getElementById("plausible_not").style.display = "inline"
+              document.getElementById("plausible_button").innerHTML = 'Exclude my visits'
+            } else {
+              window.localStorage.plausible_ignore = "true"
+              document.getElementById("plausible_not").style.display = "none"
+              document.getElementById("plausible_yes").style.display = "inline"
+              document.getElementById("plausible_button").innerHTML = 'Stop excluding my visits'
+            }
+          }
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <main id="post" class="container mx-auto main">
+  </main>
+
+  {{#contentFor "scripts"}}
+  <script>
+    $(document).ready(function () {
+      // FitVids - start
+      var $postContent = $("#post");
+      $postContent.fitVids();
+      // FitVids - end
+    });
+  </script>
+  {{/contentFor}}

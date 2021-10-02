@@ -1,0 +1,78 @@
+{
+  "name": "totori",
+  "description": "nanao.moe's blog theme, based on Mare Serenitatis design language",
+  "version": "v0.99.0-nanaomoe",
+  "engines": {
+    "ghost-api": "v4"
+  },
+  "license": "MIT",
+  "author": {
+    "email": "developer@damillora.com"
+  },
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "gulp build",
+    "zip": "gulp zip",
+    "semantic-release": "semantic-release"
+  },
+  "config": {
+    "posts_per_page": 12,
+    "image_sizes": {
+      "xxs": {
+        "width": 30
+      },
+      "xs": {
+        "width": 100
+      },
+      "s": {
+        "width": 300
+      },
+      "m": {
+        "width": 600
+      },
+      "l": {
+        "width": 1000
+      },
+      "xl": {
+        "width": 1600
+      },
+      "xxl": {
+        "width": 1920
+      }
+    }
+  },
+  "keywords": [
+    "ghost-theme",
+    "totori"
+  ],
+  "dependencies": {
+    "@damillora/la-lune": "^1.0.0",
+    "autoprefixer": "^10.2.1",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-livereload": "^4.0.2",
+    "gulp-postcss": "^9.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-zip": "^5.0.1",
+    "postcss": "^8.2.3",
+    "typeface-exo-2": "^0.0.72"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Damillora/Totori.git"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.16",
+    "@babel/preset-env": "^7.13.15",
+    "@semantic-release/exec": "^5.0.0",
+    "babel-loader": "^8.2.2",
+    "fitvids": "^2.1.1",
+    "semantic-release": "^17.4.2",
+    "terser-webpack-plugin": "^5.1.1",
+    "webpack": "^5.35.0",
+    "webpack-cli": "^4.6.0",
+    "webpack-stream": "^6.1.2"
+  },
+  "private": true
+}

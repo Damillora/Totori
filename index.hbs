@@ -1,0 +1,13 @@
+{{!< default}} 
+
+  {{> hero background=@site.cover_image}}
+
+
+  <main class="index" id="post-list">
+    {{#foreach posts}}
+    {{> "post-card"}}
+    {{/foreach}}
+  </main>
+
+  {{#contentFor "scripts"}}
+  {{/contentFor}}
