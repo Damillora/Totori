@@ -3,3 +3,5 @@ import './lib/fitvids';
 import './lib/infinite-scroll';
 import './lib/nav';
 import './lib/search';
+
+import './lib/comments';
