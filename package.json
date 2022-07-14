@@ -2,9 +2,6 @@
   "name": "totori",
   "description": "nanao.moe's blog theme, based on Mare Serenitatis design language",
   "version": "v0.99.0-nanaomoe",
-  "engines": {
-    "ghost-api": "v4"
-  },
   "license": "MIT",
   "author": {
     "email": "developer@damillora.com"
